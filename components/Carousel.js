@@ -32,35 +32,51 @@ export default function CarouselTransition() {
 
     return (
       <>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className="relative flex justify-center items-center"
-        >
-          <div className='w-screen'>
-            {images.map((image, index) => (
-              <img 
-                key={index}
-                src={image} 
-                alt="" 
-                className={`w-full height_img_carrousel object-cover object-center absolute top-0 left-0 ${index !== currentImageIndex && 'opacity-0'}`}
-                onAnimationEnd={() => setIsAnimated(false)}
-              />
-            ))}
+       <div className="   absolute z-10 left-0 right-0 flex justify-between items-center">
+           
+           <div className=' justify-center items-center '>
+                 <button className='py-10 md:py-28   rounded-full mt-8   border-white/80 bg-opacity-50 backdrop-blur-2xl backdrop-saturate-400' onClick={handlePreviousClick}>
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 md:w-12 text-zinc-100  h-14">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+
+           </button>
+           </div>
+      
+          <div className=' justify-center items-center'>
+                  <button className='py-10 md:py-28   rounded-full mt-8   border-white/80 bg-opacity-50 backdrop-blur-2xl backdrop-saturate-400' onClick={handleNextClick}>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 md:w-12 text-zinc-100  h-14">
+                        <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+                      </svg>
+                    </button>
           </div>
-        </div>
-        <div className="absolute inset-0 flex justify-between items-center ">
-          <button className='bg-white rounded-full' onClick={handlePreviousClick}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-12">
-              <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
-            </svg>
-          </button>
-          <button className='bg-white rounded-full' onClick={handleNextClick}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-12">
-              <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
+          
+         </div>
+         <div className=''>
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="relative flex justify-center items-center"
+            >
+            <div className='w-screen '>
+              {images.map((image, index) => (
+                <div key={index} >
+                   <img 
+                  key={index}
+                  src={image} 
+                  alt="" 
+                  className={`w-full shadow-xl height_img_carrousel object-cover object-center absolute top-0 left-0 ${index !== currentImageIndex && 'opacity-0'}`}
+                  onAnimationEnd={() => setIsAnimated(false)}
+                />
+                
+                </div>
+               
+              ))}
+              </div>
+     
+         </div> 
+      </div>
+    
       </>
      );
      
@@ -77,3 +93,5 @@ export default function CarouselTransition() {
 
  return <ImageCarousel images={images} />;
 }
+
+

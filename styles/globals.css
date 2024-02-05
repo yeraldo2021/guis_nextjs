@@ -16,10 +16,13 @@
 
 
 .height_img_carrousel {
- transition: opacity 2s ease-in-out;
+ transition: opacity 1s ease-in-out;
 }
 
 .height_img_carrousel.opacity-0 {
  opacity: 0;
 }
 
+   
+
+   
